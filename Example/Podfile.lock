@@ -1,0 +1,16 @@
+PODS:
+  - VersionCheck (0.1.0)
+
+DEPENDENCIES:
+  - VersionCheck (from `../`)
+
+EXTERNAL SOURCES:
+  VersionCheck:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  VersionCheck: de74b8bce4ecf2a6bb47e5da2eb4ac20a7b4cc4a
+
+PODFILE CHECKSUM: 1371a30ac63bfc04fc0208a9bd0d645154a37b09
+
+COCOAPODS: 1.1.1

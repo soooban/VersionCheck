@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import VersionCheck
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        VersionCheck.checkWithFirApiKey("your api token")
     }
 
     override func didReceiveMemoryWarning() {
