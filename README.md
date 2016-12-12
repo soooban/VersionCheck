@@ -22,7 +22,7 @@ pod "VersionCheck"
 
 ## Author
 
-周国勇, jokefaker@gmail.com
+jokefaker@gmail.com
 
 ## License
 
