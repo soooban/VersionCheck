@@ -7,7 +7,7 @@ public class VersionCheck {
     
     public static func checkWithFir(apiToken: String, bundleId: String) {
         
-        let urlString = "http://api.fir.im/apps/latest/\(bundleId)?api_token=\(apiToken)&type=ios"
+        let urlString = "https://api.fir.im/apps/latest/\(bundleId)?api_token=\(apiToken)&type=ios"
         
         guard let url = URL(string: urlString) else {
             return
