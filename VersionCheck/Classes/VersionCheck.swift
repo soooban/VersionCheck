@@ -5,7 +5,7 @@ public class VersionCheck {
         
     }
     
-    public static func checkWithFir(apiToken: String, bundleId: String) {
+    public static func checkWithFir(apiToken: String, bundleId: String,newVersion:@escaping (_ newVersionFlag : Bool) -> ()) {
         
         let urlString = "https://api.fir.im/apps/latest/\(bundleId)?api_token=\(apiToken)&type=ios"
         
@@ -68,7 +68,7 @@ public class VersionCheck {
                     })
                     alertController.addAction(ensureAction)
                     alertController.addAction(cancelAction)
-
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         guard let rootController = UIApplication.shared.keyWindow?.rootViewController! else {
                             return
@@ -76,20 +76,26 @@ public class VersionCheck {
                         
                         rootController.present(alertController, animated: true, completion: nil)
                     }
+                    newVersion(true)
+                }else{
+                    newVersion(false)
                 }
                 
             } catch {
+                newVersion(false)
                 print("VersionCheck: fir data convert json error")
             }
             
         }).resume()
     }
     
-    public static func checkWithFirApiKey(_ key: String) {
+    public static func checkWithFirApiKey(_ key: String,newVersion:@escaping (_ flag : Bool) -> () ) {
         
         guard let bundleId = Bundle.main.bundleIdentifier else {
             return
         }
-        checkWithFir(apiToken: key, bundleId: bundleId)
+        checkWithFir(apiToken: key, bundleId: bundleId) { (newVersionFlag) in
+            newVersion(newVersionFlag)
+        }
     }
 }
