@@ -75,8 +75,8 @@ public class VersionCheck {
                         }
                         
                         rootController.present(alertController, animated: true, completion: nil)
+                        newVersion(true)
                     }
-                    newVersion(true)
                 }else{
                     newVersion(false)
                 }
